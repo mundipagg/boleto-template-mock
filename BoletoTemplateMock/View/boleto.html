@@ -1,0 +1,562 @@
+﻿<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style>
+        @media print {
+            .no-print, .no-print * {
+                display: none !important;
+            }
+        }
+
+        body {
+            font-family: "Arial";
+            background-color: #fff;
+            font-size: 0.7em;
+        }
+
+        .left {
+            margin: auto;
+            width: 216mm;
+        }
+
+        .document {
+            margin: auto auto;
+            width: 216mm;
+        }
+
+        .headerBtn {
+            margin: auto auto;
+            width: 216mm;
+            background-color: #fff;
+        }
+
+        table {
+            width: 100%;
+            position: relative;
+            border-collapse: collapse;
+        }
+
+        .boletoNumber {
+            width: 66%;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .right {
+            text-align: right;
+            right: 20px;
+        }
+
+        td {
+            position: relative;
+        }
+
+        .title {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            font-size: 0.65em;
+            font-weight: bold;
+        }
+
+        .text {
+            font-size: 0.7em;
+        }
+
+        p.content {
+            padding: 0px;
+            width: 100%;
+            margin: 0px;
+            font-size: 0.7em;
+        }
+
+        .sideBorders {
+            border-left: 1px solid black;
+            border-right: 1px solid black;
+        }
+
+        hr {
+            size: 1;
+            border: 1px dashed;
+            width: 216mm;
+            margin-top: 9mm;
+            margin-bottom: 9mm;
+        }
+
+        br {
+            content: " ";
+            display: block;
+            margin: 12px 0;
+            line-height: 12px;
+        }
+
+        .print {
+            background-color: rgb(77, 144, 254);
+            background-image: linear-gradient(to bottom, rgb(77, 144, 254), rgb(71, 135, 237));
+            border: 1px solid rgb(48, 121, 237);
+            color: #fff;
+            text-shadow: 0 1px rgba(0, 0, 0, 0.1);
+        }
+
+        .btnDefault {
+            font-kerning: none;
+            font-weight: bold;
+        }
+
+            .btnDefault:not(:focus):not(:disabled) {
+                border-color: #808080;
+            }
+
+        button {
+            border: 1px;
+            padding: 5px;
+            line-height: 20px;
+        }
+
+        span.iconFont {
+            font-size: 20px;
+        }
+
+        span.align {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        label {
+            -moz-user-select: -moz-none;
+            -khtml-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+
+    <br>
+    <div class="headerBtn">
+        <div style="text-align:right;">
+            ESSE É UM BOLETO SIMULADO E NÃO POSSUI FIM COMERCIAL. NÃO EFETUE O PAGAMENTO.
+            <button class="no-print btnDefault print" onclick="window.print()">
+                <span class="align iconFont ion-printer"></span>
+                <span class="align">&nbsp;Imprimir</span>
+            </button>
+        </div>
+    </div>
+    <br>
+
+
+    <div class="document">
+        <table cellspacing="0" cellpadding="0">
+            <tbody>
+                <tr class="topLine">
+                    <td class="bankLogo">
+                        <img width="200" height="53" src="data:image/png;base64,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" alt="Logo">
+                    </td>
+                    <td class="sideBorders center"><span style="font-weight:bold;font-size:0.9em;">237-2</span></td>
+                    <td class="boletoNumber center"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAhIAAAAUCAYAAADY+9SLAAACrklEQVR4nOyc244cMQhEZ6P8/y9PniKtrLZdQDXtls55W00NYHzDTJQ/HwAAAIAkFBIAAACQhkICAAAA0lBIAAAAQBoKCQAAAEjzd/HZd/j7J6EZP1d1GV8RvoFY1JiUmBV/2XFlcqjEk9VcaaNjy8zFyoeiGf1m56sybtVXdn9lNJG52OHa70/mxzHurK2oncp67lxjb9BU9nv0vqjcca3sBvwz+ftEjcruu9HLJmJnN47suDI5zH5Ptf0xbAw1P45NfKUbtdF4HMVuJu+7WLr33Cqep8+N0/ap2051PZ92tjypqez36H3h2m8tzDoSSvAujYLLTmRylCo+ElfkFd/B7KXh0vzOkWLnCjU/ig9F44jZdQBk11ak25LRVDstnWeCq2tw2jmm2uncg1d+366J3BOVIkL1dSyrnzY+N730Rs3/RR6dbMdrbxbPqP0K1X7klZu1MyOSQyWequaOavruCl3d7G9dq6MtxV/FV8RPx5kQOfCrvhTu6vBE7GfPjUoO36hx3YPO+/QoVv/Y8vei2S3GsR2zsrWyoR4EjtfeLmaXnUhLqzIuJYdKPG7N9+I7UTrbfLuY1Tx3rjEF15y62I3LmWfnq7FrLlx2XOu5+9w4SaPMe6fmOGYdCeX3ms5XpxKPK647xqUUES7frjZaRRN5HXVeXiuiL7oTOiTRGCpzGvHlnO/KizvKU3N9B0+t57vPlk5N9wOmy5edaAt0tjhVe9l2jhpP1Jfqz6UZdZFx7Yi2zWZal2amzVwIysW0iiea51XMmTxXi9qVHcc6zGoc+32mc+Y5Gs+V1jWnSjxuO9X1rPjqPFue1HTeF68sKgAAAABC8B9SAQAAQBoKCQAAAEhDIQEAAABpKCQAAAAgDYUEAAAApKGQAAAAgDQUEgAAAJDmXwAAAP//T+hKTwyNDN8AAAAASUVORK5CYII=" line=""></td>
+                </tr>
+            </tbody>
+        </table>
+        <table cellspacing="0" cellpadding="0" border="1">
+            <tbody>
+                <tr>
+                    <td width="80%" colspan="6">
+                        <span class="title">Local de Pagamento</span>
+                        <br>
+                        <span class="text">ATÉ O VENCIMENTO EM QUALQUER BANCO OU CORRESPONDENTE NÃO BANCÁRIO</span>
+                    </td>
+                    <td width="20%">
+                        <span class="title">Data de Vencimento</span>
+                        <br>
+                        <br>
+                        <p class="content right text" style="font-weight:bold;" id="expire_date">{{DataVencimento}}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="80%" colspan="6">
+                        <span class="title">Nome do Beneficiário / CNPJ / CPF / Endereço:</span>
+                        <br>
+                        <table border="0" style="border:none">
+                            <tbody>
+                                <tr>
+                                    <td width="60%"><span class="text" id="recipient_name">Mundipagg - Boletos</span></td>
+                                    <td><span class="text" id="recipient_document"><b>CNPJ</b> 14.994.237/0001-40</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br>
+                        <span class="text" id="recipient_address">
+                            av,
+                            -
+                            ,
+                            -
+                        </span>
+                    </td>
+                    <td width="20%">
+                        <span class="title">Agência/Código Beneficiário</span>
+                        <br>
+                        <br>
+                        <p class="content right" id="agreement_agency_account">
+                            1111 /
+                            1111111
+
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="20%">
+                        <span class="title">Data do Documento</span>
+                        <br>
+                        <p class="content center" id="create_date">{{DateTime.Now}}</p>
+                    </td>
+                    <td width="17%" colspan="2">
+                        <span class="title">Num. do Documento</span>
+                        <br>
+                        <p class="content center" id="boleto_document_number">00099999999</p>
+                    </td>
+                    <td width="10%">
+                        <span class="title">Espécie doc</span>
+                        <br>
+                        <p class="content center" id="configbank_especie_doc">DM</p>
+                    </td>
+                    <td width="8%">
+                        <span class="title">Aceite</span>
+                        <br>
+                        <p class="content center" id="configbank_aceite">N</p>
+                    </td>
+                    <td>
+                        <span class="title">Data Processamento</span>
+                        <br>
+                        <p class="content center" id="process_date">{{DateTime.Now}}</p>
+                    </td>
+                    <td width="30%">
+
+                        <span class="title">Carteira/Nosso Número</span>
+                        <br>
+                        <br>
+                        <p class="content right" id="ournumber">9/{{NossoNumero}}</p>
+
+                    </td>
+                </tr>
+                <tr>
+
+                    <td width="20%">
+                        <span class="title">Uso do Banco</span>
+                        <br>
+                        <p class="content center">&nbsp;</p>
+                    </td>
+                    <td width="14%">
+                        <table>
+                            <tbody>
+                                <tr>
+
+                                    <td style="border-right: 1px solid #808080;" id="cel_cip">
+                                        <span class="title">Cip</span>
+                                        <br>
+                                        <p class="content center" id="wallet">865</p>
+                                    </td>
+
+                                    <td>
+                                        <span class="title">Carteira</span>
+                                        <br>
+                                        <p class="content center" id="wallet">
+
+                                            9
+
+                                        </p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </td>
+
+                    <td width="10%">
+                        <span class="title">Espécie</span>
+                        <br>
+                        <p class="content center">Real</p>
+                    </td>
+                    <td width="8%" colspan="2">
+                        <span class="title">Quantidade</span>
+                        <br>
+                        <p class="content center" id="configbank_quantidade"></p>
+                    </td>
+                    <td>
+                        <span class="title">Valor</span>
+                        <br>
+                        <p class="content center" id="configbank_valorCotacao"></p>
+                    </td>
+                    <td width="30%">
+                        <span class="title">(=) Valor do Documento</span>
+                        <br>
+                        <br>
+                        <p class="content right" id="amount_in_cents">{{Valor}}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="6" rowspan="4">
+                        <span class="title">Instruções de responsabilidade do BENEFICIÁRIO. Qualquer dúvida sobre este boleto contate o beneficiário.</span>
+                        <p class="content" id="instructions">NÃO RECEBER APÓS O VENCIMENTO. O prazo de compensação de boleto é de até 3 dias úteis após o pagamento, o valor do limite poderá ficar bloqueado até o processamento. Serviço Boleto Fácil: R$ 1,50</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="title">(-) Descontos/Abatimento</span>
+                        <br>
+                        <p class="content right">&nbsp;</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="title">(+) Juros/Multa</span>
+                        <br>
+                        <p class="content right">&nbsp;</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="title">(=) Valor Pago</span>
+                        <br>
+                        <p class="content right">&nbsp;</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="7">
+                        <table border="0" style="border:none">
+                            <tbody>
+                                <tr>
+                                    <td width="60%"><span class="text" id="buyer_name"><b>Nome do Pagador: </b>&nbsp;Yuri Pereira</span></td>
+                                    <td><span class="text" id="buyer_document"><b>CNPJ/CPF: </b>&nbsp;999.999.999-99</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="text" id="buyer_address"><b>Endereço: </b>Av. Gen. Justo, 375 - Centro, Rio de Janeiro - RJ, 20021-130</span></td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="text"><b>Sacador/Avalista: </b> &nbsp;</span></td>
+                                    <td><span class="text"><b>CNPJ/CPF: </b> &nbsp;</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+    </div>
+
+    <hr>
+
+    <div class="document">
+        <table cellspacing="0" cellpadding="0">
+            <tbody>
+                <tr class="topLine">
+                    <td class="bankLogo">
+                        <img width="200" height="53" src="data:image/png;base64,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" alt="Logo">
+                    </td>
+                    <td class="sideBorders center"><span style="font-weight:bold;font-size:0.9em;">999-9</span></td>
+                    <td class="boletoNumber center"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAhIAAAAUCAYAAADY+9SLAAACrklEQVR4nOyc244cMQhEZ6P8/y9PniKtrLZdQDXtls55W00NYHzDTJQ/HwAAAIAkFBIAAACQhkICAAAA0lBIAAAAQBoKCQAAAEjzd/HZd/j7J6EZP1d1GV8RvoFY1JiUmBV/2XFlcqjEk9VcaaNjy8zFyoeiGf1m56sybtVXdn9lNJG52OHa70/mxzHurK2oncp67lxjb9BU9nv0vqjcca3sBvwz+ftEjcruu9HLJmJnN47suDI5zH5Ptf0xbAw1P45NfKUbtdF4HMVuJu+7WLr33Cqep8+N0/ap2051PZ92tjypqez36H3h2m8tzDoSSvAujYLLTmRylCo+ElfkFd/B7KXh0vzOkWLnCjU/ig9F44jZdQBk11ak25LRVDstnWeCq2tw2jmm2uncg1d+366J3BOVIkL1dSyrnzY+N730Rs3/RR6dbMdrbxbPqP0K1X7klZu1MyOSQyWequaOavruCl3d7G9dq6MtxV/FV8RPx5kQOfCrvhTu6vBE7GfPjUoO36hx3YPO+/QoVv/Y8vei2S3GsR2zsrWyoR4EjtfeLmaXnUhLqzIuJYdKPG7N9+I7UTrbfLuY1Tx3rjEF15y62I3LmWfnq7FrLlx2XOu5+9w4SaPMe6fmOGYdCeX3ms5XpxKPK647xqUUES7frjZaRRN5HXVeXiuiL7oTOiTRGCpzGvHlnO/KizvKU3N9B0+t57vPlk5N9wOmy5edaAt0tjhVe9l2jhpP1Jfqz6UZdZFx7Yi2zWZal2amzVwIysW0iiea51XMmTxXi9qVHcc6zGoc+32mc+Y5Gs+V1jWnSjxuO9X1rPjqPFue1HTeF68sKgAAAABC8B9SAQAAQBoKCQAAAEhDIQEAAABpKCQAAAAgDYUEAAAApKGQAAAAgDQUEgAAAJDmXwAAAP//T+hKTwyNDN8AAAAASUVORK5CYII=" line=""></td>
+                </tr>
+            </tbody>
+        </table>
+        <table cellspacing="0" cellpadding="0" border="1">
+            <tbody>
+                <tr>
+                    <td width="80%" colspan="6">
+                        <span class="title">Local de Pagamento</span>
+                        <br>
+                        <span class="text">ATÉ O VENCIMENTO EM QUALQUER BANCO OU CORRESPONDENTE NÃO BANCÁRIO</span>
+                    </td>
+                    <td width="20%">
+                        <span class="title">Data de Vencimento</span>
+                        <br>
+                        <br>
+                        <p class="content right text" style="font-weight:bold;" id="expire_date">{{DataVencimento}}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="80%" colspan="6">
+                        <span class="title">Nome do Beneficiário / CNPJ / CPF / Endereço:</span>
+                        <br>
+                        <table border="0" style="border:none">
+                            <tbody>
+                                <tr>
+                                    <td width="60%"><span class="text" id="recipient_name">Mundipagg - Boletos</span></td>
+                                    <td><span class="text" id="recipient_document"><b>CNPJ</b> 14.994.237/0001-40</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br>
+                        <span class="text" id="recipient_address">
+                            av,
+                            -
+                            ,
+                            -
+                        </span>
+                    </td>
+                    <td width="20%">
+                        <span class="title">Agência/Código Beneficiário</span>
+                        <br>
+                        <br>
+                        <p class="content right" id="agreement_agency_account">
+                            1111 /
+                            1111111
+
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="20%">
+                        <span class="title">Data do Documento</span>
+                        <br>
+                        <p class="content center" id="create_date">{{DateTime.Now}}</p>
+                    </td>
+                    <td width="17%" colspan="2">
+                        <span class="title">Num. do Documento</span>
+                        <br>
+                        <p class="content center" id="boleto_document_number">00099999999</p>
+                    </td>
+                    <td width="10%">
+                        <span class="title">Espécie doc</span>
+                        <br>
+                        <p class="content center" id="configbank_especie_doc">DM</p>
+                    </td>
+                    <td width="8%">
+                        <span class="title">Aceite</span>
+                        <br>
+                        <p class="content center" id="configbank_aceite">N</p>
+                    </td>
+                    <td>
+                        <span class="title">Data Processamento</span>
+                        <br>
+                        <p class="content center" id="process_date">{{DateTime.Now}}</p>
+                    </td>
+                    <td width="30%">
+
+                        <span class="title">Carteira/Nosso Número</span>
+                        <br>
+                        <br>
+                        <p class="content right" id="ournumber">9/{{NossoNumero}}</p>
+
+                    </td>
+                </tr>
+                <tr>
+
+                    <td width="20%">
+                        <span class="title">Uso do Banco</span>
+                        <br>
+                        <p class="content center">&nbsp;</p>
+                    </td>
+                    <td width="14%">
+                        <table>
+                            <tbody>
+                                <tr>
+
+                                    <td style="border-right: 1px solid #808080;" id="cel_cip">
+                                        <span class="title">Cip</span>
+                                        <br>
+                                        <p class="content center" id="wallet">865</p>
+                                    </td>
+
+                                    <td>
+                                        <span class="title">Carteira</span>
+                                        <br>
+                                        <p class="content center" id="wallet">
+
+                                            9
+
+                                        </p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </td>
+
+                    <td width="10%">
+                        <span class="title">Espécie</span>
+                        <br>
+                        <p class="content center">Real</p>
+                    </td>
+                    <td width="8%" colspan="2">
+                        <span class="title">Quantidade</span>
+                        <br>
+                        <p class="content center" id="configbank_quantidade"></p>
+                    </td>
+                    <td>
+                        <span class="title">Valor</span>
+                        <br>
+                        <p class="content center" id="configbank_valorCotacao"></p>
+                    </td>
+                    <td width="30%">
+                        <span class="title">(=) Valor do Documento</span>
+                        <br>
+                        <br>
+                        <p class="content right" id="amount_in_cents">{{Valor}}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="6" rowspan="4">
+                        <span class="title">Instruções de responsabilidade do BENEFICIÁRIO. Qualquer dúvida sobre este boleto contate o beneficiário.</span>
+                        <p class="content" id="instructions">NÃO RECEBER APÓS O VENCIMENTO. O prazo de compensação de boleto é de até 3 dias úteis após o pagamento, o valor do limite poderá ficar bloqueado até o processamento. Serviço Boleto Fácil: R$ 1,50</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="title">(-) Descontos/Abatimento</span>
+                        <br>
+                        <p class="content right">&nbsp;</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="title">(+) Juros/Multa</span>
+                        <br>
+                        <p class="content right">&nbsp;</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="title">(=) Valor Pago</span>
+                        <br>
+                        <p class="content right">&nbsp;</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="7">
+                        <table border="0" style="border:none">
+                            <tbody>
+                                <tr>
+                                    <td width="60%"><span class="text" id="buyer_name"><b>Nome do Pagador: </b>&nbsp;Yuri Pereira</span></td>
+                                    <td><span class="text" id="buyer_document"><b>CNPJ/CPF: </b>&nbsp;999.999.999-99</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="text" id="buyer_address"><b>Endereço: </b>Av. Gen. Justo, 375 - Centro, Rio de Janeiro - RJ, 20021-130</span></td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="text"><b>Sacador/Avalista: </b> &nbsp;</span></td>
+                                    <td><span class="text"><b>CNPJ/CPF: </b> &nbsp;</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+    </div>
+
+    <div class="left">
+        <img style="margin-left:5mm;" id="barcode_" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZQAAAAyEAAAAAAODK54AAAA/ElEQVR4nOzT4WqDMBhA0dD3f2fHJsKMRu/Y33PAMWr8Yqv3M8a2Hce38eP4/zj2z87r5rXnNavzv+fO163mXK+f1zzv0+9lnv/Xfc7XzffwtMfqfufzq+fyn+/+PqvMLc/0/hle577tf/eblPdm9Z4+vWP7388AXgkFAqFAIBQIhAKBUCAQCgRCgUAoEAgFAqFAIBQIhAKBUCAQCgRCgUAoEAgFAqFAIBQIhAKBUCAQCgRCgUAoEAgFAqFAIBQIhAKBUCAQCgRCgUAoEAgFAqFAIBQIhAKBUCAQCgRCgUAoEAgFAqFAIBQIhAKBUCAQCgRCgUAoEHwFAAD//8VikOIAXN2VAAAAAElFTkSuQmCC" alt="">
+        <br>
+    </div>
+
+
+</body>
+</html>
