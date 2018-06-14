@@ -4,10 +4,10 @@
 
 ## Utilizando
 
-**Url**: http://stgboletomock.mundipagg.com/  
+**Url**: https://stgboletomock.mundipagg.com/  
 **QueryString**:
 - dataVencimento: YYYY-DD-MM
 - nossoNumero= TEXTO
 - valor= NÚMERO
 
-**Exemplo**: http://stgboletomock.mundipagg.com/datavencimento=2018-04-12&nossoNumero=123456&valor=10.18
+**Exemplo**: https://stgboletomock.mundipagg.com/datavencimento=2018-04-12&nossoNumero=123456&valor=10.18
